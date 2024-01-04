@@ -5,7 +5,8 @@
 2. Use Python3.11 with django version given in requirements.txt
 
 ```
-quick tip use venv : python3.11 -m venv venv
+quick tip use venv , follow these commands :
+python3.11 -m venv venv
 source venv/bin/activate  - linux
 .\venv\Scripts\activate.bat   - windows
 ```
