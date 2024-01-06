@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'api'
 ]
 
 MIDDLEWARE = [
@@ -99,6 +100,12 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+#Sessions
+# Using database-backed sessions (default)
+SESSION_ENGINE = 'django.contrib.sessions.backends.db'
+
+# Set session timeout to 24 hours (in seconds)
+SESSION_COOKIE_AGE = 60 * 60 * 24
 
 # Internationalization
 # https://docs.djangoproject.com/en/5.0/topics/i18n/
