@@ -1,0 +1,121 @@
+body {
+    font-size: 1rem;
+    font-family: Arial, sans-serif;
+    background-color: #e8eff1;
+    color: #333; 
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #4a6fa5;
+    color: white;
+    padding: 1vw; 
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+}
+
+.header-section {
+    flex: 1;
+    text-align: center;
+}
+
+.header-section p, .item p {
+    font-size: 1.2vw; 
+}
+
+.logo-section {
+    text-align: left;
+}
+
+.settings-section {
+    text-align: right;
+}
+
+.logo, .settings-icon {
+    width: 4vw; /* Adjust as needed */
+    height: auto;
+    max-width: 60px; /* Maximum size to prevent them from becoming too large */
+}
+.header-section p {
+    margin: 5px 0;
+    font-size: 1.2em; 
+}
+.page-container {
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    margin: 20px auto;
+    max-width: 65vw; /* Responsive width */
+    padding: 2vw; /* Responsive padding */
+}
+
+.item-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    
+}
+
+.item {
+    border-radius: 15px;
+    margin: auto;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    transition: 0.3s;
+    position: relative; /* Added for positioning the image */
+    overflow: hidden;
+    max-width: 25vw;
+     /* Adjust width as needed */
+    height: 20vw;
+}
+
+.item img {
+    border-radius: 12px;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center; 
+}
+
+.item h3 {
+    object-fit: contain;
+    border-radius: 12px;
+    margin:0;
+    background-color: white;
+    font-size: 2em;
+    padding-top: 3px;
+}
+
+
+.item:hover {
+    box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+}
+.pictures
+{
+    border-radius: 12px;
+}
+
+@media screen and (max-width: 1200px) {
+    .item {
+        width: 40vw; /* Larger items on smaller screens */
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .item-list {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns layout */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .item-list {
+        grid-template-columns: 1fr; /* 1 column layout */
+    }
+
+    .logo, .settings-icon {
+        width: 10vw; /* Larger icons on very small screens */
+    }
+}
