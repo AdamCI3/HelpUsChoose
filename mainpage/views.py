@@ -6,9 +6,12 @@ from django.shortcuts import render
 
 def index(request):
     categories_list= Category.objects.all()
-    output=", ".join([c.category_name for c in categories_list])
+    output=", ".join([c.name for c in categories_list])
     template = loader.get_template("mainpage/index.html")
     context = {
         "categories_list": categories_list,
     }
     return HttpResponse(render(request,"mainpage/index.html",context))
+
+
+

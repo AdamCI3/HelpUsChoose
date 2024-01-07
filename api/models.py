@@ -13,15 +13,16 @@ class User(models.Model):
 
 class Item(models.Model):
     id = models.AutoField(primary_key=True)
-    name = models.TextField()
-    category_id = models.OneToOneField(Category, on_delete=models.CASCADE)
-    img_src = models.TimeField()
+    name = models.CharField(max_length = 200)  
+    category_id = models.OneToOneField(Category, on_delete=models.CASCADE) 
+    # img_src = models.CharField(max_length = 200)   
+    img_src = models.ImageField(upload_to='img/', default=None)   
     created_at = models.DateTimeField(auto_now_add=True)
     modified_at = models.DateTimeField(auto_now=True)
     
 class Game(models.Model):
     id = models.AutoField(primary_key=True)
-    url = models.TextField()
+    url = models.CharField(max_length = 200)  
     owner_id = models.ForeignKey(User, on_delete=models.CASCADE)
     category_id = models.ForeignKey(Category, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)

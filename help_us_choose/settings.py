@@ -129,3 +129,11 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+#NOWE USTAWIENIA WOJTEK
+import os
+MEDIA_URL = "/mainpage/static/mainpage/"
+# MEDIA_URL = "/cateogry/"
+# MEDIA_ROOT=os.path.join(BASE_DIR,"/category/")
+MEDIA_ROOT=os.path.join(BASE_DIR,"mainpage/static/mainpage/")
