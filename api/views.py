@@ -79,3 +79,16 @@ def join(request, game_id):
     print(request.session['games'])
 
     return HttpResponse("OK")
+
+def next(request, move):
+    # This function should return next move
+    # Every time this api enpoint is called it
+    # should run logic to calculate matches
+    # 
+    # ARGUMENT: 
+    # 0 - Left
+    # 1 - Right
+    #
+    # RETURN:
+    # INSTANCE OF ITEM
+    pass
