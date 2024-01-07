@@ -14,15 +14,19 @@ class User(models.Model):
 class Item(models.Model):
     id = models.AutoField(primary_key=True)
     name = models.TextField()
-    category_id = models.OneToOneField(Category, on_delete=models.CASCADE)
+    category_id = models.ForeignKey(Category, on_delete=models.CASCADE)
     img_src = models.TimeField()
     created_at = models.DateTimeField(auto_now_add=True)
     modified_at = models.DateTimeField(auto_now=True)
     
+    def __str__(self):
+        return f'{self.name}'
+    
 class Game(models.Model):
     id = models.AutoField(primary_key=True)
     url = models.TextField()
-    owner_id = models.ForeignKey(User, on_delete=models.CASCADE)
+    owner_id = models.ForeignKey(User, on_delete=models.CASCADE, related_name='owner_id')
+    player_id = models.ForeignKey(User, on_delete=models.CASCADE, related_name='player_id')
     category_id = models.ForeignKey(Category, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
     modified_at = models.DateTimeField(auto_now=True)
