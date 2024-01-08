@@ -6,21 +6,21 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>HelpUsChoose</title>
-
+		<link href=’https://fonts.googleapis.com/css?family=Dekko’ rel=’stylesheet’>
 		<link rel="stylesheet" href="{% static 'mainpage/style.css' %}" />
 	</head>
 
 	<body>
 		<header>
 			<div class="header-section logo-section">
-				<img src="logo.png" alt="Logo" class="logo" />
-				<p>Your Website Name</p>
+				<img src="{% static 'mainpage/logo.png' %}" alt="Logo" class="logo" />
+				<p>HelpUsChoose</p>
 			</div>
 			<div class="header-section quote-section">
-				<p>"Your inspirational quote here"</p>
+				<h1>Strona dla niezdecydowanych</h1>
 			</div>
 			<div class="header-section settings-section">
-				<img src="settings-icon.png" alt="Settings" class="settings-icon" />
+				<img src="{% static 'mainpage/settings.png' %}" alt="settings-icon" class="settings-icon" />
 			</div>
 		</header>
 		<div class="page-container">
