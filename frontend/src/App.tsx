@@ -7,7 +7,8 @@ function App() {
     async function fetchData(){
     console.log(import.meta.env.VITE_API_URL)
     try{
-      const response = await fetch(`${import.meta.env.VITE_API_URL}mainpage`);
+      // const response = await fetch(`${import.meta.env.VITE_API_URL}init`,{credentials: "same-origin"});
+      const response = await fetch("api/init",{credentials: "include"});
       if(!response.ok)
       {
         throw new Error('Network response was not ok');
