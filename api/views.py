@@ -12,6 +12,7 @@ def init(request):
         new_user = User.objects.create()
         request.session['id'] = new_user.id
         request.session['games'] = {}
+        request.session['queues'] = {}
         print(request.session['games'])
         return HttpResponse("OK")
     else:
@@ -24,14 +25,14 @@ def session_check(request):
 def new_game(request, category_id):
     if 'id' not in request.session:
         return HttpResponse("ERR")
-    
-    print(category_id)
-    
     current_user = User.objects.get(id=request.session['id'])
+    
+    category_list = list(Category.objects.filter(id=category_id)) 
+    if len(category_list) <= 0: 
+        return HttpResponse("ERR")
     category = Category.objects.get(id=category_id)
     
-    items_list = list(Item.objects.filter(category_id=category))
-    
+    items_list = list(Item.objects.filter(category_id=category)) 
     if len(items_list) <= 0: 
         return HttpResponse("ERR")
     
@@ -42,12 +43,10 @@ def new_game(request, category_id):
         category_id=category)
     new_game.url = f"game/{new_game.id}"
     new_game.save()
-    
-    print(items_list)
-    print(new_game.id)
+
     request.session['games'][str(new_game.id)] = random.choice(items_list).id
+    request.session['queues'][str(new_game.id)] = []
     request.session.modified = True
-    print(request.session['games'])
     
     return HttpResponse(new_game.id)
 
@@ -73,10 +72,9 @@ def join(request, game_id):
     current_game.player_id = current_user
     current_game.save()
     
-    print(game_id)
     request.session['games'][str(game_id)] = random.choice(items_list).id
+    request.session['queues'][str(game_id)] = []
     request.session.modified = True
-    print(request.session['games'])
 
     return HttpResponse("OK")
 
