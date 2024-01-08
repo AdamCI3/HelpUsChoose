@@ -21,4 +21,5 @@ urlpatterns = [
     path("mainpage/", include("mainpage.urls")),
     path('admin/', admin.site.urls),
     path('api/', include("api.urls")),
+    path('categoryapi/',include('help_us_choose.api.urls')),
 ]
