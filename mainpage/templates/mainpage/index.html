@@ -16,11 +16,11 @@
 <body>
     <header>
         <div class="header-section logo-section">
-            <img src="logo.png" alt="Logo" class="logo">
-            <p>Your Website Name</p>
+            <img src="{% static 'mainpage/logo.png' %}" alt="Logo" class="logo">
+            <p>HelpUsChoose</p>
         </div>
         <div class="header-section quote-section">
-            <p>"Your inspirational quote here"</p>
+            <h1>Wybierz kategorie!</h1>
         </div>
         <div class="header-section settings-section">
             <img src="settings-icon.png" alt="Settings" class="settings-icon">
@@ -31,12 +31,12 @@
             {% if categories_list %}
             {% for category in categories_list %}
             <div class="item">
-                <h3>{{ category.category_name }}</h3>
-                <img src="{% static 'mainpage/default.jpg' %}">
+                <h3>{{ category.name }}</h3>
+                <img src="{% static 'mainpage/image1.jpg' %}">
             </div>
             {% endfor %}
             {% else %}
-            <p>No polls are available.</p>
+            <p>No categories are available.</p>
             {% endif %}
         </section>
     </div>
